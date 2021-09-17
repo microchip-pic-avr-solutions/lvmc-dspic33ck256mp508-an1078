@@ -8,7 +8,8 @@
     This file includes subroutine for initializing ADC Cores of Controller
 
   Description:
-    Definitions in the file are for dsPIC33CK256MP508
+    Definitions in the file are for dsPIC33CK256MP508 on Motor Control 
+    Development board from Microchip
 
 *******************************************************************************/
 /*******************************************************************************
@@ -147,7 +148,7 @@ void InitializeADCs (void)
     /* Shared ADC Core is Disabled prior to configuration */
     ADCON3Hbits.SHREN = 0;
     /* ADC Module Clock Source Selection bits 
-       0b11 = APLL;0b10 = FRC ;0b01 = FOSC ; 0b00 = FSYS (System Clock) */
+       0b11 = FVCO/4;0b10 = AFVCODIV ;0b01 = FOSC ; 0b00 = FP(Peripheral Clock) */
     ADCON3Hbits.CLKSEL = 0;
     /* ADC Module Clock Source Divider bits (1 to 64)
        The divider forms a TCORESRC clock used by all ADC cores (shared and 
@@ -332,8 +333,8 @@ void InitializeADCs (void)
     _ADCAN0IE    = 0 ;  
     
     /* Trigger Source Selection for Corresponding Analog Inputs bits 
+     *  00101 = PMW1 Trigger 2
         00100 = PMW1 Trigger 1
-		00101 = PMW1 Trigger 2
         00001 = Common software trigger
         00000 = No trigger is enabled  */
   /* comment*/  
