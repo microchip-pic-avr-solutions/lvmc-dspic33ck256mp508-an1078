@@ -41,42 +41,39 @@
 *
 *******************************************************************************/
 
-#include "X2CScope.h"
-#include "hal/uart1.h"
+#include "library/x2cscope/X2CScope.h"
+#include "uart1.h"
 #include <stdint.h>
 
+#define X2C_DATA __attribute__((section("x2cscope_data_buf")))
 #define X2C_BAUDRATE_DIVIDER 54
+#define X2C_BUFFER_SIZE 4900
+X2C_DATA static uint8_t X2C_BUFFER[X2C_BUFFER_SIZE];
     /*
      * baud rate = 100MHz/16/(1+baudrate_divider) for highspeed = false
+     * baud rate = 100MHz/4/(1+baudrate_divider) for highspeed = true
      * 
-     * 115.1kbaud => 54 (for DIAG_BAUDRATE_DIVIDER with highspeed = false)
-     */
-
-    /*
-     * baud rate = 70MHz/16/(1+baudrate_divider) for highspeed = false
-     * baud rate = 70MHz/4/(1+baudrate_divider) for highspeed = true
-     * 
-     * 4375kbaud => 0 (for DIAG_BAUDRATE_DIVIDER with highspeed = false)
-     * 2188kbaud => 1
-     * 1458kbaud => 2
-     * 1094kbaud => 3
-     *  875kbaud => 4
-     *  729kbaud => 5
-     *  625kbaud => 6
-     *  547kbaud => 7
-     *  486kbaud => 8
-     *  437kbaud => 9
-     *  397kbaud => 10
-     *  364.6kbaud => 11
-     *  336.5kbaud => 12
-     *  312.5kbaud => 13
-     *  291.7kbaud => 14
-     *  273.4kbaud => 15
-     *  257.3kbaud => 16
-     *  243.1kbaud => 17
-     *  230.2kbaud => 18
-     *  115.1kbaud => 37
-     *   57.6kbaud => 75
+     * 6250kbaud => 0 (for DIAG_BAUDRATE_DIVIDER with highspeed = false)
+     * 3125kbaud => 1
+     * 2083kbaud => 2
+     * 1562kbaud => 3
+     *  1250kbaud => 4
+     *  1041kbaud => 5
+     *  892kbaud => 6
+     *  781kbaud => 7
+     *  694kbaud => 8
+     *  625kbaud => 9
+     *  568kbaud => 10
+     *  520.8kbaud => 11
+     *  480.76kbaud => 12
+     *  446.4kbaud => 13
+     *  416.6kbaud => 14
+     *  390.62kbaud => 15
+     *  367.6kbaud => 16
+     *  347.2kbaud => 17
+     *  328.9kbaud => 18
+     *  115.7kbaud => 54
+     *   57.87kbaud => 107
      */
 
 void X2CScope_Init(void);
@@ -114,14 +111,6 @@ static void X2CScope_sendSerial(uint8_t data)
 
 static uint8_t X2CScope_receiveSerial()
 {
-    const uint16_t error_mask = _U1STA_OERR_MASK 
-                              | _U1STA_FERR_MASK
-                              | _U1STA_PERR_MASK;
-    if (UART1_StatusGet() & error_mask)
-    {
-        UART1_ReceiveBufferOverrunErrorFlagClear();
-        return 0;
-    }
     return UART1_DataRead();
 }
 
@@ -142,5 +131,5 @@ void X2CScope_Init(void)
         X2CScope_receiveSerial,
         X2CScope_isReceiveDataAvailable,
         X2CScope_isSendReady);
-    X2CScope_Initialise();
+    X2CScope_Initialise(X2C_BUFFER,sizeof(X2C_BUFFER));
 }

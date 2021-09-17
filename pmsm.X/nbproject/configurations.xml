@@ -6,7 +6,6 @@
                    projectFiles="true">
       <logicalFolder name="diagnostics" displayName="diagnostics" projectFiles="true">
         <itemPath>../diagnostics/diagnostics.h</itemPath>
-        <itemPath>../diagnostics/X2CScope.h</itemPath>
       </logicalFolder>
       <logicalFolder name="hal" displayName="hal" projectFiles="true">
         <itemPath>../hal/adc.h</itemPath>
@@ -19,25 +18,28 @@
         <itemPath>../hal/cmp.h</itemPath>
         <itemPath>../hal/measure.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="lib" displayName="lib" projectFiles="true">
-        <logicalFolder name="f1" displayName="motor_control" projectFiles="true">
-          <itemPath>../lib/motor_control/motor_control.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_declarations.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_inline_declarations.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_inline_dspic.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_types.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_dsp.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_inline_internal.h</itemPath>
-          <itemPath>../lib/motor_control/motor_control_util.h</itemPath>
+      <logicalFolder name="library" displayName="library" projectFiles="true">
+        <logicalFolder name="mc-library" displayName="mc-library" projectFiles="true">
+          <itemPath>../library/mc-library/motor_control.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_declarations.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_dsp.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_inline_declarations.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_inline_dspic.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_inline_internal.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_types.h</itemPath>
+          <itemPath>../library/mc-library/motor_control_util.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="x2cscope" displayName="x2cscope" projectFiles="true">
+          <itemPath>../library/x2cscope/X2CScope.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../control.h</itemPath>
       <itemPath>../general.h</itemPath>
-      <itemPath>../motor_control_noinline.h</itemPath>
       <itemPath>../userparms.h</itemPath>
       <itemPath>../smcpos.h</itemPath>
       <itemPath>../fdweak.h</itemPath>
       <itemPath>../singleshunt.h</itemPath>
+      <itemPath>../motor_control_noinline.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -100,8 +102,8 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../diagnostics/libx2cscope_33ck.a</linkerLibFileItem>
-            <linkerLibFileItem>../lib/motor_control/libmotor_control_dspic-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>../library/mc-library/libmotor_control_dspic-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>../library/x2cscope/libx2cscope-generic-dspic-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
