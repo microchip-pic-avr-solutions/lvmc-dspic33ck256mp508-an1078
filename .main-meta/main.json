@@ -1,0 +1,45 @@
+{
+   "metaDataVersion":"1.0.0",
+   "category":"com.microchip.ide.project",
+   "content":{
+      "metaDataVersion":"1.0.0",
+      "name":"com.microchip.mplabx.project.lvmc-dspic33ck256mp508-an1078",
+      "version":"x.x.x",
+      "displayName":"xxxxxxxxxxxxxxx",
+      "projectName":"lvmc-dspic33ck256mp508-an1078",
+      "shortDescription":"xxxxxxxxxxxxxxx",
+      "ide":{
+         "name":"MPLABX",
+         "semverRange":">=5.40.0"
+      },
+      "compiler":{
+         "name":"XC16",
+         "semverRange":"^1.50.0"
+      },
+      "dfp":{
+         "name":"xxxxxxxxxxxxxxx",
+         "semverRange":">=x.x.x"
+      },
+	  "configurator": {
+         "name": "MCC",
+         "semverRange": ">=4.0.1"
+      },
+      "device":{
+         "metaDataVersion":"1.0.0",
+         "category":"com.microchip.portal.contentRef",
+         "content":{
+            "metaDataVersion":"1.0.0",
+            "category":"com.microchip.device",
+            "name":"xxxxxxxxxxxxxxx",
+            "versionRange":"*"
+         }
+      },
+	  "peripherals":[
+         "GPIO",
+      ],
+      "keywords":[
+         "GPIO",
+         "UART"
+      ]
+   }
+}
