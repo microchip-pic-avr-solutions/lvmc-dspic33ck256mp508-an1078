@@ -102,8 +102,8 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../library/mc-library/libmotor_control_dspic-elf.a</linkerLibFileItem>
-            <linkerLibFileItem>../library/x2cscope/libx2cscope-generic-dspic-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>library-motor/libmotor_control_dspic-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>library-x2cscope/libx2cscope-generic-dspic-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
