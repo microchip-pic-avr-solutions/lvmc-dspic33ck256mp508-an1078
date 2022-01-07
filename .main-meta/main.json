@@ -4,10 +4,10 @@
    "content":{
       "metaDataVersion":"1.0.0",
       "name":"com.microchip.mplabx.project.lvmc-dspic33ck256mp508-an1078",
-      "version":"x.x.x",
-      "displayName":"xxxxxxxxxxxxxxx",
+      "version":"1.0.0",
+      "displayName":"AN1078 dspic33ck256mp508 LVMC",
       "projectName":"lvmc-dspic33ck256mp508-an1078",
-      "shortDescription":"xxxxxxxxxxxxxxx",
+      "shortDescription":"Sensorless Field Oriented Control of a PMSM",
       "ide":{
          "name":"MPLABX",
          "semverRange":">=5.40.0"
@@ -17,8 +17,8 @@
          "semverRange":"^1.50.0"
       },
       "dfp":{
-         "name":"xxxxxxxxxxxxxxx",
-         "semverRange":">=x.x.x"
+         "name":"dsPIC33CK-MP_DFP",
+         "semverRange":">=1.6.176"
       },
 	  "configurator": {
          "name": "MCC",
@@ -30,16 +30,19 @@
          "content":{
             "metaDataVersion":"1.0.0",
             "category":"com.microchip.device",
-            "name":"xxxxxxxxxxxxxxx",
+            "name":"dsPIC33CK256MP508",
             "versionRange":"*"
          }
       },
 	  "peripherals":[
-         "GPIO",
+         "ADC",
+		 "PWM",
+		 "TIMER"
       ],
       "keywords":[
-         "GPIO",
-         "UART"
+         "Motor Control and Drive",
+         "Motor Control",
+		 "Permanent Magnet Synchronous Motors"
       ]
    }
 }
