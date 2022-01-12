@@ -7,7 +7,7 @@
       "version":"1.0.0",
       "displayName":"AN1078 dspic33ck256mp508 LVMC",
       "projectName":"lvmc-dspic33ck256mp508-an1078",
-      "shortDescription":"Sensorless Field Oriented Control of a PMSM",
+      "shortDescription":"Sensorless Field Oriented Control of a PMSM with sliding mode observer",
       "ide":{
          "name":"MPLABX",
          "semverRange":">=5.40.0"
