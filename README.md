@@ -156,13 +156,13 @@ Follow below instructions step by step to setup and run the motor control demo a
 4. <p style='text-align: justify;'>Open userparams.h (under pmsm.X -> headerfiles) in the project pmsm.X and ensure SINGLE_SHUNT is undefined if dual shunt configuration is used for phase current measurement and demonstration 
  </p>
   <p align="center">
-  <img  src="images/dualshuntconfig.png"></p>
+  <img  src="images/dualshuntconfig.PNG"></p>
  <p align = "center"><font size="2"> Figure 10  Dual Shunt Configuration
 </p>
 
 5. <p style='text-align: justify;'> For demonstration of FOC using single shunt reconstruction algorithm (i.e. reconstruction of phase currents from DC Bus Current), enable single shunt algorithm by defining the macro SINGLE_SHUNT in userparams.h (under pmsm.X -> headerfiles) part of the project pmsm.X. In this mode, reconstructed phase currents (from DC Bus current feedback) and actual phase currents (measured across phase shunt resistors) are available for comparison. By default, firmware is enabled to operate in single shunt con-figuration.</p>
   <p align="center">
-  <img  src="images/singleshuntconfig.png"></p>
+  <img  src="images/singleshuntconfig.PNG"></p>
  <p align = "center"><font size="2"> Figure 11  Single Shunt Configuration
 </p>
   
