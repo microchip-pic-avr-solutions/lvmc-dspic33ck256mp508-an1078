@@ -42,7 +42,8 @@
 *******************************************************************************/
 
 
-#include "../lvmc-dspic33ck256mp508-an1078/pmsm.X/library-x2cscope/X2CScope.h"
+//#include "../lvmc-dspic33ck256mp508-an1078/pmsm.X/library-x2cscope/X2CScope.h"
+#include "../library/library-x2cscope/X2CScope.h"
 #include "uart1.h"
 #include <stdint.h>
 

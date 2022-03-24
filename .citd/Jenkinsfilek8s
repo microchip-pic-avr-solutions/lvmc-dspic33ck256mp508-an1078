@@ -31,6 +31,9 @@ pipeline {
         DEPLOY_EXCLUDE_FOLDER_FILE_LIST = 'mchp_private,.mchp_private,sandbox,.sandbox'
         //Branch(s) to be deployed, if multiple branches use comma separator. DEPLOY_BRANCH_LIST is the target branch of the PR.
         DEPLOY_BRANCH_LIST = "master"
+		/*When using the main.json schema version 1.3.0 or higher, the PORTAL will first reject registration attempt when an unapproved keyword is found, but can be forced to accept. 
+		This argument is used to provide the list of unapproved keywords (also listed in main.json) which the deployment script will force the PORTAL to accept.*/
+        UNAPPROVED_KEYWORDS_OVERRIDE_LIST="NONE"
         
         /*
             GitHub Page Stage Information
@@ -99,7 +102,9 @@ pipeline {
         stage('Validate main.json') {            
             steps {
                script {                    
-                    validateMetaData()                   
+                    validateMetaData(
+					    unapprovedKeywordsOverrideList: "${UNAPPROVED_KEYWORDS_OVERRIDE_LIST}"
+					)                  
                 }
             }
         } 
@@ -236,7 +241,8 @@ pipeline {
             steps {
                 script {
                     portalDeploy(
-                        githubOrgName: "${env.GITHUB_PRODUCTION_ORGANIZATION}"
+                        githubOrgName: "${env.GITHUB_PRODUCTION_ORGANIZATION}",
+						unapprovedKeywordsOverrideList: "${UNAPPROVED_KEYWORDS_OVERRIDE_LIST}"
                     )
                 }
             }
