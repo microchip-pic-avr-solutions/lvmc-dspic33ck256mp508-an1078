@@ -2,7 +2,7 @@
    "metaDataVersion":"1.0.0",
    "category":"com.microchip.ide.project",
    "content":{
-      "metaDataVersion":"1.0.0",
+      "metaDataVersion":"1.3.0",
       "name":"com.microchip.mplabx.project.lvmc-dspic33ck256mp508-an1078",
       "version":"1.0.0",
       "displayName":"AN1078 dspic33ck256mp508 LVMC",
@@ -36,13 +36,11 @@
       },
 	  "peripherals":[
          "ADC",
-		 "PWM",
-		 "TIMER"
+		 "PWM"
       ],
       "keywords":[
-         "Motor Control and Drive",
          "Motor Control",
-		 "Permanent Magnet Synchronous Motors"
+		 "PMSM"
       ]
    }
 }
