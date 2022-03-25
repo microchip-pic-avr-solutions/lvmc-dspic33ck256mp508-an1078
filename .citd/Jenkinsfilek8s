@@ -109,24 +109,6 @@ pipeline {
             }
         } 
         
-        // Creating tag in Bitbucket repo
-        stage('Bitbucket Tag Creation') {
-            when {
-                anyOf {
-                    allOf {
-                        not { changeRequest() }
-                        anyOf {branch 'master';}
-                    }
-                }
-            }
-            
-            steps {
-               script {
-                    bitbucketTagCreation()
-                }
-            }
-        }
-        
         stage('Doxygen files generation') {
             when {
                 anyOf {
@@ -182,7 +164,8 @@ pipeline {
                         bitbucketUrl: "${env.BITBUCKET_SOURCE_URL}",
                         deployBranchList: "${env.DEPLOY_BRANCH_LIST}",
                         deployExcludeFileList: "${env.DEPLOY_EXCLUDE_FOLDER_FILE_LIST}",
-                        githubOrgName: "${env.GITHUB_PRODUCTION_ORGANIZATION}"
+                        githubOrgName: "${env.GITHUB_PRODUCTION_ORGANIZATION}",
+						includeSubmoduleCode: "true"
                     )
                 }
             }
