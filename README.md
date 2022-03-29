@@ -1,6 +1,6 @@
 ![image](images/microchip.jpg) 
 
-# LVMC DSPIC33CK256MP508 AN1078
+# LVMC dsPIC33CK256MP508 AN1078
 
 ## INTRODUCTION
 <p style='text-align: justify;'>
@@ -31,7 +31,6 @@ To clone or download this application from Github, go to the [main page of this 
 - dsPIC33CK Low Voltage Motor Control Board, Part-No. [DM330031](https://www.microchip.com/developmenttools/ProductDetails/PartNO/DM330031)
 - 24V Power Supply, Part-No. [AC002013](https://www.microchipdirect.com/dev-tools/AC002013)
 - 24V 3-Phase Brushless DC Motor, Part-No. [AC300020](https://www.microchip.com/en-us/development-tool/AC300020)
-- Microchip Programmer tool - MPLAB PICkit 4 In-Circuit Debugger, Part-No. [PG164140](https://www.microchip.com/en-us/development-tool/PG164140)
   <br />
 > **_NOTE:_**
 > All items listed under the section Hardware Tools Required for the Demonstration are available at [microchip DIRECT](https://www.microchipdirect.com/)
@@ -71,7 +70,7 @@ If the amplifiers that are internal to the dsPIC33CK256MP508 are used, then that
  <p align = "center"><font size="2"> Figure 3  LVMC PKOB4
 </p> 
 <p style='text-align: justify;'>
-5.	Alternatively, connect the Microchip programmer/debugger MPLAB PICkit 4 In-Circuit De-bugger to the Connector J10 of the dsPIC33CK Low Voltage Motor Control Board as shown below and to the Host PC used for programming the device. Ensure that PICkit 4 is connected in correct orientation.</p>
+5.	Alternatively, the device can also be programmed using the programmer/debugger (MPLAB® PICkit™ 4 In-Circuit Debugger - PG164140) by interfacing it through connector J10 of the dsPIC33CK Low Voltage Motor Control Board as shown below. Ensure that the programmer is oriented correctly before proceeding..</p>
 
 <p align="center">
   <img  src="images/lvmcprogrammingconnector.png"></p>
@@ -147,7 +146,7 @@ Follow below instructions step by step to setup and run the motor control demo a
  <p align = "center"><font size="2"> Figure 8  Internal Op-Amp Confuiguration
 </p> 
     <p style='text-align: justify;'>
-    Otherwise if external amplifiers are used for current amplification (referred as ‘External Op Amp Configuration’) then undefine the macro INTER-NAL_OPAMP_CONFIG in userparams.h.</p>
+    Otherwise if external amplifiers are used for current amplification (referred as ‘External Op Amp Configuration’) then undefine the macro INTERNAL_OPAMP_CONFIG in userparams.h.</p>
 <p align="center">
   <img  src="images/externalopampconfig.png"></p>
  <p align = "center"><font size="2"> Figure 9  External Op-Amp Confuiguration
@@ -166,9 +165,9 @@ Follow below instructions step by step to setup and run the motor control demo a
  <p align = "center"><font size="2"> Figure 11  Single Shunt Configuration
 </p>
   
-6. <p style='text-align: justify;'>Right click on the project bldc.X and select “Properties” to open its Project Properties Dialog. Click the “Conf: [default]” category to reveal the general project configuration information.</p>
+6. <p style='text-align: justify;'>Right click on the project pmsm.X and select “Properties” to open its Project Properties Dialog. Click the “Conf: [LVMC]” category to reveal the general project configuration information.</p>
 
-    In the ‘Conf: [default]’ category window: 
+    In the ‘Conf: [LVMC]’ category window: 
     - Select the specific Compiler Toolchain from the available list of compilers. Please ensure MPLAB® XC16 Compiler supports the device dsPIC33CK256MP508. In this case “XC16(v1.70)” is selected. The compiler used for testing the firmware is listed in the section Software Tools Used for Testing the firmware.
     - Select the Hardware Tool to be used for programming and debugging. In this case, “MPLAB PKoB 4” is the selected programmer.
     - After selecting Hardware Tool and Compiler Toolchain, click button Apply
@@ -185,9 +184,9 @@ Follow below instructions step by step to setup and run the motor control demo a
  <p align = "center"><font size="2"> Figure 13  Device Programming
 </p>
   
-8. <p style='text-align: justify;'>		If the device is successfully programmed, LD10 (‘LED2) will be turned ON, indicating that the dsPIC® DSC is enabled.</p> 
+8. <p style='text-align: justify;'>		If the device is successfully programmed, LD10 (‘LED1) will be turned ON, indicating that the dsPIC® DSC is enabled.</p> 
 
-9. <p style='text-align: justify;'>		Run or Stop the motor by pressing the push button SW1. The function of the pushbutton SW1 (Run/Stop of the motor) is indicated by turning ON or OFF the LED1 (LD11).</p>
+9. <p style='text-align: justify;'>		Run or Stop the motor by pressing the push button SW1. The function of the pushbutton SW1 (Run/Stop of the motor) is indicated by turning ON or OFF the LD11 (LED2).</p>
 
   <p align="center">
   <img  src="images/pushbuttons.png"></p>
@@ -213,7 +212,7 @@ The application firmware comes with initialization required to interface Control
 
 1. Ensure X2C Scope Plug-in is installed. For additional information on how to set up a plug-in refer https://microchipdeveloper.com/mplabx:tools-plugins-available
 
-2. <p style='text-align: justify;'>To utilize X2C communication for this demonstration, a micro-USB connection is required between Host PC and dsPIC33CK Low Voltage Motor Control Board. PKob 4 Connector J13 can be used to communicate between Host PC and dsPIC33CK Low Voltage Motor Control Board, alternatively Connect a micro-USB cable from your computer to the J6 connector of the dsPIC33CK Low Voltage Motor Control Board.</p>
+2. <p style='text-align: justify;'>To utilize X2C communication for this demonstration, a micro-USB connection is required between Host PC and dsPIC33CK Low Voltage Motor Control Board. PKoB 4 Connector J13 can be used to communicate between Host PC and dsPIC33CK Low Voltage Motor Control Board, alternatively Connect a micro-USB cable from your computer to the J6 connector of the dsPIC33CK Low Voltage Motor Control Board.</p>
 
  <p align="center">
   <img  src="images/x2cinterface.png"></p>

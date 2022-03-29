@@ -140,8 +140,8 @@ int main ( void )
     /* Initialize Peripherals */
     Init_Peripherals();
 
-	/* Turn on LED2 to indicate the device is programmed */
-    LED2 = 1;
+	/* Turn on LED1(LD10) to indicate the device is programmed */
+    LED1 = 1;
 
     DiagnosticsInit();
 
@@ -177,13 +177,13 @@ int main ( void )
                 {
                     ResetParmeters();
 					trans_counter = 0;
-                    LED1 = 0;
+                    LED2 = 0;
                 }
                 else
                 {
 					EnablePWMOutputs();
                     uGF.bits.RunMotor = 1;
-                    LED1 = 1;
+                    LED2 = 1;
                 }
 
             }
